@@ -2,12 +2,12 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-01-26 12:53:15
+LastEditTime: 2022-01-26 14:03:23
 '''
 from setuptools import find_packages
 from distutils.core import setup
 
-with open("README.rst", "r", encoding='utf-8') as f:
+with open("index.rst", "r", encoding='utf-8') as f:
   long_description = f.read()
 
 setup(name = 'BUCTOJ',  # 包名
