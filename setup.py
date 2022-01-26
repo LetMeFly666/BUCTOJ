@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-01-26 14:09:49
+LastEditTime: 2022-01-26 14:24:47
 '''
 from setuptools import find_packages
 from distutils.core import setup
@@ -11,12 +11,16 @@ with open("README.rst", "r", encoding='utf-8') as f:
   long_description = f.read()
 
 setup(name = 'BUCTOJ',  # 包名
-    version = '0.0.8',  # 版本号
+    version = '0.0.10',  # 版本号
     description='用Python玩转北化OJ平台',
     long_description = long_description,
     author = 'LetMeFly',
     author_email='Tisfy@qq.com',
     url = 'https://github.com/LetMeFly666/BUCTOJ',
+    project_urls={
+        "Bug Tracker": "https://github.com/LetMeFly666/BUCTOJ/issues",
+        "在线文档": "https://buctoj.readthedocs.io",
+    },
     install_requires=[
         'requests>=1.0.0',
         'lxml>=2.0',
