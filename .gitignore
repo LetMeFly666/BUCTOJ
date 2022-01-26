@@ -1,1 +1,4 @@
 del*
+dist
+build
+BUCTOJ.egg-info
