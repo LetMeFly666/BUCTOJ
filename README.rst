@@ -11,6 +11,7 @@ BUCTOJ 用Python玩转北化OJ平台
 
 
 ::
+
     from BUCTOJ import Login
     cookies = Login.login(用户名, 密码)
 
@@ -24,6 +25,7 @@ BUCTOJ 用Python玩转北化OJ平台
 
 
 ::
+
     from BUCTOJ import SubmitOneCode
     SubmitOneCode.submit(比赛的cid，要提交问题的pid，你的cookie，要提交的代码)
 
@@ -41,6 +43,7 @@ cookie是登录功能所获得的cookie。
 --------------------------------
 
 ::
+
     from BUCTOJ import AutoGetAndSubmit
     AutoGetAndSubmit.main(比赛cid, 你的用户名, 你的密码, 管理员用户名, 管理员密码)
 
