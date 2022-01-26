@@ -1,6 +1,11 @@
 BUCTOJ 用Python玩转北化OJ平台
 ========================================
 
+.. image:: https://readthedocs.org/projects/buctoj/badge/?version=latest
+:target: https://buctoj.readthedocs.io/zh_CN/latest/?badge=latest
+:alt: Documentation Status
+
+
 将 `BUCT-OJ <http://182.92.175.181/>`_ 的一些功能封装成包，从而实现通过脚本提交代码等。
 
 主要功能
