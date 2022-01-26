@@ -2,13 +2,18 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-01-26 14:24:47
+LastEditTime: 2022-01-26 15:11:18
 '''
 from setuptools import find_packages
 from distutils.core import setup
 
 with open("README.rst", "r", encoding='utf-8') as f:
   long_description = f.read()
+
+"""
+python setup.py sdist bdist_wheel
+twine upload dist/*
+"""
 
 setup(name = 'BUCTOJ',  # 包名
     version = '0.0.10',  # 版本号
