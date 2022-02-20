@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-24 16:04:55
 LastEditors: LetMeFly
-LastEditTime: 2022-02-21 01:00:12
+LastEditTime: 2022-02-21 01:02:53
 '''
 import requests
 from bs4 import BeautifulSoup
@@ -64,7 +64,6 @@ def randText() -> str:
 def getASourceCodeAndChange(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
     try:
     # if True:
-        print("----------")
         code = getASourceCode(cid=cid, pid=pid, cookies=cookies)
     except:
     # else:
