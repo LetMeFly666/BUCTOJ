@@ -2,12 +2,13 @@
 Author: LetMeFly
 Date: 2022-01-24 16:04:55
 LastEditors: LetMeFly
-LastEditTime: 2022-02-21 01:02:53
+LastEditTime: 2022-02-21 01:22:15
 '''
 import requests
 from bs4 import BeautifulSoup
 import random
 import string
+from . import FromPidToChar  # 从题目的数字编号到字母编号
 try:
     import lxml
     features = 'lxml'
@@ -15,11 +16,11 @@ except:
     featrues = None
 
 
-def getASourceCode_0(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
+def getASourceCode_0(cid: str, pid_str: str, cookies: requests.cookies.RequestsCookieJar) -> str:
     """
     通过admin的cookie获得一个通过的C++代码(前提是有人通过)
     """
-    url = f"http://182.92.175.181/status.php?cid={cid}&problem_id={pid}&user_id=&language=1&jresult=4&showsim=0"
+    url = f"http://182.92.175.181/status.php?cid={cid}&problem_id={pid_str}&user_id=&language=1&jresult=4&showsim=0"
     response = requests.get(url, cookies=cookies)
     soup = BeautifulSoup(response.text, features)
     table = soup.find('table', attrs={"id": "vueAppFuckSafari"})
@@ -67,7 +68,8 @@ def getASourceCodeAndChange(cid: str, pid: str, cookies: requests.cookies.Reques
         code = getASourceCode(cid=cid, pid=pid, cookies=cookies)
     except:
     # else:
-        code = getASourceCode_0(cid=cid, pid=pid, cookies=cookies)
+        pid_str = FromPidToChar.i2s(pid)
+        code = getASourceCode_0(cid=cid, pid_str=pid, cookies=cookies)
     pre = f"""// LetMeFly_PySubmiter
 #include <bits/stdc++.h>
 using namespace std;

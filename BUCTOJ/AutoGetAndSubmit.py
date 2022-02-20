@@ -20,7 +20,7 @@ def finish1contest(cid: str, cookie_my: requests.cookies.RequestsCookieJar, cook
         pid_str = FromPidToChar.i2s(pid)
         try:
         # if True:
-            code = GetASourceCodeAndChange.getASourceCodeAndChange(cid, pid_str, cookie_admin)
+            code = GetASourceCodeAndChange.getASourceCodeAndChange(cid, pid, cookie_admin)
         except:
         # else:
             print(f"Problem{pid_str}暂未有C++通过者")
