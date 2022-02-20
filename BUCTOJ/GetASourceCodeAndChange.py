@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-24 16:04:55
 LastEditors: LetMeFly
-LastEditTime: 2022-01-24 17:01:41
+LastEditTime: 2022-02-21 00:43:12
 '''
 import requests
 from bs4 import BeautifulSoup
@@ -23,11 +23,35 @@ except:
     featrues = None
 
 
-def getASourceCode(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
+def getASourceCode_0(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
     """
     通过admin的cookie获得一个通过的C++代码(前提是有人通过)
     """
     url = f"http://182.92.175.181/status.php?cid={cid}&problem_id={pid}&user_id=&language=1&jresult=4&showsim=0"
+    response = requests.get(url, cookies=cookies)
+    soup = BeautifulSoup(response.text, features)
+    table = soup.find('table', attrs={"id": "vueAppFuckSafari"})
+    tr = table.find('tbody').find('tr')
+    td = tr.find_all('td')[6]
+    a = td.find_all('a')[1]
+    href = 'http://182.92.175.181/' + a.get('href')
+    response = requests.get(href, cookies=cookies)
+    soup = BeautifulSoup(response.text, features)
+    code = soup.find('pre').string
+    return code
+
+
+def getASourceCode(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
+    """
+    通过admin的cookie获得一个通过的C++代码(前提是有人通过)
+    """
+    url_problem_in_content = f"http://182.92.175.181/problem.php?cid={cid}&pid={pid}"
+    response_problem_in_content = requests.get(url_problem_in_content, cookies=cookies)
+    soup_problem_in_content = BeautifulSoup(response_problem_in_content.text, featrues)
+    a_problem_in_content = soup_problem_in_content.find_all("a", attrs={"class": "small"})
+    real_pid = str(a_problem_in_content[2].get("href")).split("id=")[1].split("&")[0]
+    # print(real_pid)
+    url = f"http://buctcoder.com/problem.php?id={real_pid}"
     response = requests.get(url, cookies=cookies)
     soup = BeautifulSoup(response.text, features)
     table = soup.find('table', attrs={"id": "vueAppFuckSafari"})
@@ -46,7 +70,10 @@ def randText() -> str:
 
 
 def getASourceCodeAndChange(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar) -> str:
-    code = getASourceCode(cid=cid, pid=pid, cookies=cookies)
+    try:
+        code = getASourceCode(cid=cid, pid=pid, cookies=cookies)
+    except:
+        code = getASourceCode_0(cid=cid, pid=pid, cookies=cookies)
     pre = f"""// LetMeFly_PySubmiter
 #include <bits/stdc++.h>
 using namespace std;
