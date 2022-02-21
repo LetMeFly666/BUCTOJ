@@ -7,7 +7,7 @@ BUCTOJ 用Python玩转北化OJ平台
 
 
 
-将 `BUCT-OJ <http://182.92.175.181/>`_ 的一些功能封装成包，从而实现通过脚本提交代码等。
+将 `BUCT-OJ <https://buctcoder.com/>`_ 的一些功能封装成包，从而实现通过脚本提交代码等。
 
 ⚠ 仅供学习测试，不能用于特殊用途
 
@@ -45,7 +45,7 @@ BUCTOJ 用Python玩转北化OJ平台
 
 进入比赛的某道题目后，地址栏的url中会有cid和pid。
 
-例如 `Contest2347` 的 `A` 题，url为 `http://182.92.175.181/problem.php?cid=2347&pid=0` ，因此此题目的cid为2374，pid为0
+例如 `Contest2347` 的 `A` 题，url为 `https://buctcoder.com/problem.php?cid=2347&pid=0` ，因此此题目的cid为2374，pid为0
 
 cookie是登录功能所获得的cookie。
 
@@ -61,7 +61,7 @@ cookie是登录功能所获得的cookie。
 
 1. 拥有一个管理员账号
 
-2. 每道题都有用C++通过者
+2. 每道题都有用C++通过者（非本次比赛提交也可）
 
 **功能**：
 
@@ -71,5 +71,27 @@ cookie是登录功能所获得的cookie。
 
 2. 查重率为0
 
-
 若某次比赛中一些题目无人用C++通过，则程序会跳过此题继续提交下一题
+
+修改配置
+=============
+
+
+修改域名
+--------------------------
+
+脚本的默认oj域名为"https://buctcoder.com/"
+
+若非本域名的其他相同oj平台，则可以进行配置其他域名。
+
+假如"https://oj.letmefly.xyz/"也是采用的 `hustoj <https://github.com/zhblue/hustoj/>`_ ，那么此脚本可能也能用来进行oj.letmefly.xyz的操纵。
+
+::
+
+    from BUCTOJ import Config
+    from BUCTOJ import login
+
+    Config.set_info("base_url", "https://oj.letmefly.xyz/")
+    cookies = login(0, 0)
+
+当前仅支持“域名”这一个配置。

@@ -2,13 +2,13 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-02-21 01:22:21
+LastEditTime: 2022-02-21 17:24:47
 '''
 from setuptools import find_packages
 from distutils.core import setup
 
 with open("README.rst", "r", encoding='utf-8') as f:
-  long_description = f.read()
+    long_description = f.read()
 
 """
 python setup.py sdist bdist_wheel
@@ -18,7 +18,7 @@ twine upload dist/*
 print("Hello From BUCTOJ")
 
 setup(name = 'BUCTOJ',  # 包名
-    version = '0.0.14',  # 版本号
+    version = '0.0.15',  # 版本号
     description='用Python玩转北化OJ平台',
     long_description = long_description,
     author = 'LetMeFly',
