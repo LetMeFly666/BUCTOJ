@@ -6,9 +6,6 @@ BUCTOJ 用Python玩转北化OJ平台
 ..     :alt: 文档状态
 
 .. image:: https://readthedocs.org/projects/buctoj/badge/?version=latest
-:target: https://buctoj.readthedocs.io/zh_CN/latest/?badge=latest
-:alt: Documentation Status
-
 
 将 `BUCT-OJ <https://buctcoder.com/>`_ 的一些功能封装成包，从而实现通过脚本提交代码等。
 
