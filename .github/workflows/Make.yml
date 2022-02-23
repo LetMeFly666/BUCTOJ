@@ -23,8 +23,8 @@ jobs:
       - name: 'Build BUCTOJ and Push to PyPi'
         run: |
           python setup.py --help
-          ls ~
-          python setup.py sdist bdist_wheel
+          python setup.py sdist
+          python setup.py bdist_wheel
           twine upload dist/*
         
       
