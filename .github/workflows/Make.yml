@@ -29,13 +29,14 @@ jobs:
         run: |
           python setup.py --help
           python setup.py sdist bdist_wheel
-          tree
           # twine upload dist/*
+          tree
       - name: 'Release'
         env:
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
         run: |
-          python Print.py
+          python ReleasePublisher.py
+
 
 
         
