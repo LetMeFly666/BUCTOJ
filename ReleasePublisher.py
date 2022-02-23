@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-02-23 15:24:31
 LastEditors: LetMeFly
-LastEditTime: 2022-02-23 15:59:15
+LastEditTime: 2022-02-23 16:01:15
 '''
 from setup import version
 import requests
@@ -52,4 +52,9 @@ def main():
 
 
 if __name__ == "__main__":
+    print("***********")
     main()
+    print("----------")
+
+
+print("88888888888888")
