@@ -25,7 +25,6 @@ jobs:
         run: |
           python setup.py --help
           python setup.py sdist bdist_wheel
-          python setup.py 
           # tree
           twine upload dist/*
         
