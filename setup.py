@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-02-21 17:43:43
+LastEditTime: 2022-02-22 14:37:29
 '''
 from setuptools import find_packages
 from distutils.core import setup
@@ -16,9 +16,10 @@ twine upload dist/*
 """
 
 print("Hello From BUCTOJ")
+version = '0.0.17'
 
 setup(name = 'BUCTOJ',  # 包名
-    version = '0.0.16',  # 版本号
+    version = version,  # 版本号
     description='用Python玩转北化OJ平台',
     long_description = long_description,
     author = 'LetMeFly',

@@ -1,0 +1,14 @@
+name: 'Auto Build and Publish When Push'
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: 'Build and Publish'
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: ''
