@@ -33,7 +33,7 @@ jobs:
       - name: 'Release'
         env:
           REPO_TOKEN: ${{ REPO_TOKEN }}
-          run: python ReleasePublisher.py
+        run: python ReleasePublisher.py
 
 
         
