@@ -21,6 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade twine
           python -m pip install --upgrade wheel
+          python -m pip install --upgrade requests
       - name: 'Build BUCTOJ and Push to PyPi'
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
@@ -28,8 +29,13 @@ jobs:
         run: |
           python setup.py --help
           python setup.py sdist bdist_wheel
-          # tree
-          twine upload dist/*
+          # twine upload dist/*
+      - name: 'Release'
+        env:
+          REPO_TOKEN: ${{ REPO_TOKEN }}
+          run: python ReleasePublisher.py
+
+
         
       
       
