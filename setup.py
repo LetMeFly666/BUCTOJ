@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-02-22 14:37:29
+LastEditTime: 2022-02-23 14:47:20
 '''
 from setuptools import find_packages
 from distutils.core import setup
@@ -16,7 +16,7 @@ twine upload dist/*
 """
 
 print("Hello From BUCTOJ")
-version = '0.0.17'
+version = '0.0.18'
 
 setup(name = 'BUCTOJ',  # 包名
     version = version,  # 版本号
