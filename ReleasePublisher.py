@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-02-23 15:24:31
 LastEditors: LetMeFly
-LastEditTime: 2022-02-23 15:51:32
+LastEditTime: 2022-02-23 15:59:15
 '''
 from setup import version
 import requests
@@ -47,6 +47,7 @@ def upload_files2release(release_id: str) -> None:
 
 def main():
     release_id = create1release()
+    print(release_id)
     upload_files2release(str(release_id))
 
 
