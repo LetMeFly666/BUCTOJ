@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-24 12:51:09
 LastEditors: LetMeFly
-LastEditTime: 2022-02-21 00:59:01
+LastEditTime: 2022-03-09 22:14:17
 '''
 import requests
 from . import Login  # 由账号密码到登录后的cookie
@@ -30,12 +30,14 @@ def finish1contest(cid: str, cookie_my: requests.cookies.RequestsCookieJar, cook
         time.sleep(sleep_time)
         
 
-def main(cid: str, username_my, password_my, username_admin, password_admin, sleep_time = 15) -> None:
+def main(cid: str, username_my, password_my, username_admin, password_admin, sleep_time = 15, warn = True) -> None:
     """
     自动Copy代码并完成比赛 + 不被查重
         Input: 比赛的cid、要自动提交的账号的用户名和密码、Admin的用户名和密码
         Output: 完成一场比赛(前提是每道题都有人提交了C++代码)
     """
+    if warn:
+        print("既然你有管理号，就不要用管理号来做不该做的事情")
     cookie_my = Login.login(username_my, password_my)
     cookie_admin = Login.login(username_admin, password_admin)
     finish1contest(cid, cookie_my, cookie_admin, sleep_time=sleep_time)
