@@ -54,6 +54,7 @@ cookie是登录功能所获得的cookie。
 --------------------------------
 
 ::
+
     from BUCTOJ import create1problem, login
     cookies = login(管理员用户名, 管理员密码)
     problem_id = create1problem(cookies=cookies, title="题目标题", description="题目描述", input="输入描述", output="输出描述", sample_input="1\n0", sample_output="0")
