@@ -49,6 +49,20 @@ BUCTOJ 用Python玩转北化OJ平台
 
 cookie是登录功能所获得的cookie。
 
+
+新建问题
+--------------------------------
+
+::
+    from BUCTOJ import create1problem, login
+    cookies = login(管理员用户名, 管理员密码)
+    problem_id = create1problem(cookies=cookies, title="题目标题", description="题目描述", input="输入描述", output="输出描述", sample_input="1\n0", sample_output="0")
+
+上述代码会使用管理员账号创建一道新的问题，并返回新建问题的id。
+
+在BUCTOJ提供的新建题目的网页经常会出现编辑了很多之后提交失败的情况，使用此脚本提交可以先在本地编辑好之后一次提交成功。
+
+
 自动完成一个比赛
 --------------------------------
 
