@@ -2,9 +2,9 @@
 Author: LetMeFly
 Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
-LastEditTime: 2022-03-09 23:03:29
+LastEditTime: 2022-03-09 23:06:39
 '''
-version = '0.1.0'
+version = '0.1.1'
 
 if __name__ == "__main__":
     from setuptools import find_packages
