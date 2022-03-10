@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-03-09 17:19:51
 LastEditors: LetMeFly
-LastEditTime: 2022-03-10 18:00:15
+LastEditTime: 2022-03-10 18:14:06
 '''
 from bs4 import BeautifulSoup
 from typing import Tuple
@@ -26,6 +26,42 @@ def get_postkey_and_csrf(cookies: requests.cookies.RequestsCookieJar) -> Tuple[s
     csrf = soup_csrf.find("input").get("value")
     
     return (postkey, csrf)
+
+
+def edit1problem(cookies: requests.cookies.RequestsCookieJar, problem_id: str, title: str, description: str, input: str, output: str, sample_input = "", sample_output = "", hint = "", time_limit = 1, memory_limit = 128, spj = 0, source = "", contest_id = "") -> None:
+    """
+    修改一道已经存在的题目
+
+    Parameters:
+        problem_id - 要修改的题目的id
+        其他 - 参考create1problem函数
+    """
+    postkey, csrf = get_postkey_and_csrf(cookies)
+
+    from . import Config
+    base_url = Config.get_info("base_url")
+    url = base_url + 'admin/problem_edit.php'
+    data = {
+        "problem_id": problem_id,
+        "title": title,
+        "time_limit": time_limit,
+        "memory_limit": memory_limit,
+        "description": description,
+        "input": input,
+        "output": output,
+        "sample_input": sample_input,
+        "sample_output": sample_output,
+        "test_input": "",
+        "test_output": "",
+        "hint": hint,
+        "spj": spj,
+        "source": source,
+        "contest_id": contest_id,
+        "postkey": postkey,
+        "submit": "保存",
+        "csrf": csrf
+    }
+    response = requests.post(url=url, cookies=cookies, data=data)
 
 
 def create1problem(cookies: requests.cookies.RequestsCookieJar, title: str, description: str, input: str, output: str, sample_input = "", sample_output = "", hint = "", time_limit = 1, memory_limit = 128, spj = 0, source = "", contest_id = "") -> str:
@@ -80,10 +116,7 @@ def create1problem(cookies: requests.cookies.RequestsCookieJar, title: str, desc
     href = soup.find("a").get("href")
     problem_id = href.split("javascript:phpfm(")[1].split(");")[0]
 
-    data["problem_id"] = problem_id
-    data["postkey"], data["csrf"] = get_postkey_and_csrf(cookies)
-    url = base_url + 'admin/problem_edit.php'
-    response = requests.post(url=url, cookies=cookies, data=data)
+    edit1problem(cookies=cookies, problem_id=problem_id, title=title, description=description, input=input, output=output, sample_input=sample_input, sample_output=sample_output, hint=hint, time_limit=time_limit, memory_limit=memory_limit, spj=spj, source=source, contest_id=contest_id)
     return problem_id
 
 

@@ -63,6 +63,15 @@ cookie是登录功能所获得的cookie。
 
 在BUCTOJ提供的新建题目的网页经常会出现编辑了很多之后提交失败的情况，使用此脚本提交可以先在本地编辑好之后一次提交成功。
 
+编辑问题
+--------------------------------
+
+::
+
+    from BUCTOJ import edit1problem, login
+    cookies = login(管理员用户名, 管理员密码)
+    edit1problem(cookies=cookies, problem_id="6080", title=...后面参考新建问题create1problem函数)
+
 
 自动完成一个比赛
 --------------------------------
