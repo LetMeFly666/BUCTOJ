@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-03-09 17:19:51
 LastEditors: LetMeFly
-LastEditTime: 2022-03-09 23:01:16
+LastEditTime: 2022-03-10 18:00:15
 '''
 from bs4 import BeautifulSoup
 from typing import Tuple
@@ -78,6 +78,12 @@ def create1problem(cookies: requests.cookies.RequestsCookieJar, title: str, desc
     response = requests.post(url=url, cookies=cookies, data=data)
     soup = BeautifulSoup(response.text, "lxml")
     href = soup.find("a").get("href")
-    return href.split("javascript:phpfm(")[1].split(");")[0]
+    problem_id = href.split("javascript:phpfm(")[1].split(");")[0]
+
+    data["problem_id"] = problem_id
+    data["postkey"], data["csrf"] = get_postkey_and_csrf(cookies)
+    url = base_url + 'admin/problem_edit.php'
+    response = requests.post(url=url, cookies=cookies, data=data)
+    return problem_id
 
 
