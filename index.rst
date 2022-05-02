@@ -49,6 +49,47 @@ BUCTOJ 用Python玩转北化OJ平台
 
 cookie是登录功能所获得的cookie。
 
+通过id提交代码
+--------------------------
+
+
+::
+
+    from BUCTOJ import submitById, login
+    submit(login(账号，密码)，题目id，代码，语言)
+    # response = submit(login('LetMeFly', 'SoHandsome'), '6264', """#include <bits/stdc++.h>\n...""", 'C++')
+    # response = submit(login('LetMeFly', 'SoHandsome'), '6264', """#include <bits/stdc++.h>\n...""", '1')
+
+
+
+上述方式支持多种语言提交，可以传参languageid(对应的languageid在BUCTOJ的提交页面)，也可传参语言名。当语言名不受支持时会认为传递的参数是languageid。
+
+语言、id对照表：
+
++-----------+------------+
+| 语言      | languageid |
++===========+============+
+| C         | 0          |
++-----------+------------+
+| C++       | 1          |
++-----------+------------+
+| Java      | 3          |
++-----------+------------+
+| Python    | 6          |
++-----------+------------+
+| PHP       | 7          |
++-----------+------------+
+| JavaScript| 16         |
++-----------+------------+
+| Go        | 17         |
++-----------+------------+
+| SQL       | 18         |
++-----------+------------+
+
+题库中的问题提交之前地址栏中会存在问题id，例如问题“还原撕碎的字条，哄笑生气的毛毛”的id为6264( `https://buctoj.com/problem.php?id=6264` )
+
+函数返回来自BUCTOJ的response
+
 
 新建问题
 --------------------------------
