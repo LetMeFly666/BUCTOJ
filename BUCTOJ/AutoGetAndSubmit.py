@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-01-24 12:51:09
 LastEditors: LetMeFly
-LastEditTime: 2022-05-02 12:25:11
+LastEditTime: 2022-07-10 10:43:36
 '''
 import requests
 from . import Login  # 由账号密码到登录后的cookie
@@ -18,11 +18,11 @@ def finish1contest(cid: str, cookie_my: requests.cookies.RequestsCookieJar, cook
     print(f"比赛{cid}共有{problem_num}道题目")
     for pid in range(problem_num):
         pid_str = FromPidToChar.i2s(pid)
-        # try:
-        if True:
+        try:
+        # if True:
             code = GetASourceCodeAndChange.getASourceCodeAndChange(cid, pid, cookie_admin)
-        # except:
-        else:
+        except:
+        # else:
             print(f"Problem{pid_str}暂未有C++通过者")
             continue
         SubmitOneCode.submit(cid, pid, cookie_my, code)
