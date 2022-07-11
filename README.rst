@@ -166,4 +166,4 @@ cookie是登录功能所获得的cookie。
 TODO:
 =============
 
-BUGFIX: 脚本自动添加的头部会include上C++的 `<bits/stdc++.h>` 头文件，这可能导致原本能通过的代码产生编译错误（如 `int map;` �
+BUGFIX: 脚本自动添加的头部会include上C++的 `<bits/stdc++.h>` 头文件，这可能导致原本能通过的代码产生编译错误（如 `int map;` 等）
