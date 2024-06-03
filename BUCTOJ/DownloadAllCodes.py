@@ -1,11 +1,16 @@
 '''
 Author: LetMeFly
-Date: 2024-06-03 21:43:24
+Date: 2024-06-03 23:24:40
 LastEditors: LetMeFly
-LastEditTime: 2024-06-03 23:23:08
+LastEditTime: 2024-06-03 23:34:21
 '''
 import requests
 from bs4 import BeautifulSoup
+try:
+    import lxml
+    features = 'lxml'
+except:
+    features = None
 from os.path import exists
 from os import mkdir
 
@@ -40,27 +45,25 @@ def getAllpages(baseurl):
     return results
 
 
-def get1codeBySubmissionId(submissionId):
-    response = requests.get(f'http://oj.narc.letmefly.xyz/showsource.php?id={submissionId}', cookies={'warrant': 'rKoBZkav', 'PHPSESSID': '*******'})
+def get1codeBySubmissionId(submissionId, cookies):
+    from . import Config
+    base_url = Config.get_info("base_url")
+    response = requests.get(f'{base_url}showsource.php?id={submissionId}', cookies=cookies)
     soup = BeautifulSoup(response.text, 'lxml')
     code = soup.find('pre')
     return code.get_text()
 
 
-def saveAllCodes(results):
+def saveAllCodes(baseurl, cookies):
+    results = getAllpages(baseurl)
+    print(f'Total num: {len(results)}')
     if not exists('results'):
         mkdir('results')
     for thisSubmission in results:
         submissionId = thisSubmission.find('td').get_text()
         userid = thisSubmission.find_all('td')[1].get_text()
         print(f'Getting {userid}\'s submssion {submissionId}')
-        code = get1codeBySubmissionId(submissionId)
+        code = get1codeBySubmissionId(submissionId, cookies=cookies)
         with open(f'results/{userid}-{submissionId}.java', 'w', encoding='utf-8') as f:
             f.write(code)
 
-
-results = getAllpages('http://oj.narc.letmefly.xyz/status.php?cid=1269&jresult=4')
-
-# print(result)
-print(f'TotalAC: {len(results)}')
-saveAllCodes(results)
