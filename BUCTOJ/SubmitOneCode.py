@@ -2,13 +2,13 @@
 Author: LetMeFly
 Date: 2022-01-24 15:55:51
 LastEditors: LetMeFly
-LastEditTime: 2022-05-02 18:57:26
+LastEditTime: 2024-06-03 21:32:00
 '''
 import requests
 
 
 def submit(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar,
-           code: str) -> None:
+           code: str) -> requests.Response:
     from . import Config
     base_url = Config.get_info("base_url")
     url = f"{base_url}submit.php"
@@ -19,6 +19,7 @@ def submit(cid: str, pid: str, cookies: requests.cookies.RequestsCookieJar,
         'source': code
     }
     response = requests.post(url, data=data, cookies=cookies)
+    return response
 
 
 def submitById(cookies: requests.cookies.RequestsCookieJar, id: str, code: str,
