@@ -2,12 +2,12 @@
 Author: LetMeFly
 Date: 2024-06-04 16:27:24
 LastEditors: LetMeFly
-LastEditTime: 2024-06-04 20:39:55
+LastEditTime: 2024-06-04 20:43:13
 '''
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import setup
+from setup import version
 
 # Configuration file for the Sphinx documentation builder.
 
@@ -17,8 +17,7 @@ project = 'BUCTOJ'
 copyright = '2024, Tisfy'
 author = 'Tisfy'
 
-release = setup.version
-version = setup.version
+release = version
 
 # -- General configuration
 
