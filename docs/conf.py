@@ -2,9 +2,9 @@
 Author: LetMeFly
 Date: 2024-06-04 16:27:24
 LastEditors: LetMeFly
-LastEditTime: 2024-06-04 19:53:06
+LastEditTime: 2024-06-04 20:31:59
 '''
-from .. import setup
+import setup
 
 # Configuration file for the Sphinx documentation builder.
 
