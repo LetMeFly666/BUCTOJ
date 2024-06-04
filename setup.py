@@ -4,7 +4,7 @@ Date: 2022-01-25 17:46:23
 LastEditors: LetMeFly
 LastEditTime: 2024-06-04 15:42:42
 '''
-version = '0.3.4'
+version = '0.3.5'
 
 if __name__ == "__main__":
     from setuptools import find_packages
