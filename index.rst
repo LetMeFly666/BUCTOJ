@@ -140,6 +140,31 @@ cookie是登录功能所获得的cookie。
 
 若某次比赛中一些题目无人用C++通过，则程序会跳过此题继续提交下一题
 
+下载某比赛/题目的所有提交/AC代码
+--------------------------------
+
+::
+
+    from BUCTOJ import Config, login, saveAllCodes
+    cookies = login('账号', '密码')
+    saveAllCodes(baseurl='http://oj.narc.letmefly.xyz/status.php?cid=1269&jresult=4', cookies=cookies)
+
+**前提**：
+
+1. 拥有一个管理员账号
+
+**功能**：
+
+若满足以上一个条件，则此函数具有以下功能：
+
+1. 获取baseurl的所有提交代码（会自动下一页）
+2. 以“{用户}-{提交编号}.java”命名保存到results文件夹下（若无则会自动创建）
+
+**TODO**：
+
+1. 根据提交语音自动生成文件后缀，而非默认的.java
+2. 支持用户自定义文件夹名，而非默认的results
+
 修改配置
 =============
 
