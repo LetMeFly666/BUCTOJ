@@ -2,8 +2,10 @@
 Author: LetMeFly
 Date: 2024-06-04 16:27:24
 LastEditors: LetMeFly
-LastEditTime: 2024-06-04 19:21:27
+LastEditTime: 2024-06-04 19:53:06
 '''
+from .. import setup
+
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
@@ -12,8 +14,8 @@ project = 'BUCTOJ'
 copyright = '2024, Tisfy'
 author = 'Tisfy'
 
-release = '0.3'
-version = '0.3.6'
+release = setup.version
+version = setup.version
 
 # -- General configuration
 
