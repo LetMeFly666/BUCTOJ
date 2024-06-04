@@ -24,8 +24,8 @@ jobs:
           python -m pip install --upgrade requests
       - name: 'Build BUCTOJ and Push to PyPi'
         env:
-          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TWINE_APITOKEN }}
         run: |
           python setup.py --help
           python setup.py sdist bdist_wheel
