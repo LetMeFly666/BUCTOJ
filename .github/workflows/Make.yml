@@ -32,6 +32,7 @@ jobs:
           twine upload dist/* --verbose
           tree
       - name: 'Release'
+        continue-on-error: true
         env:
           REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
         run: |
