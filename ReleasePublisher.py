@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-02-23 15:24:31
 LastEditors: LetMeFly
-LastEditTime: 2022-02-23 16:19:15
+LastEditTime: 2024-06-04 19:51:06
 '''
 from setup import version
 import requests
@@ -29,6 +29,7 @@ def create1release() -> int:
     })
     response = requests.post(url, headers=headers, data=data)
     print(response)
+    print(response.text)
     return response.json().get("id")
 
 
@@ -42,6 +43,7 @@ def upload_files2release(release_id: str) -> None:
         data = open(os.path.join("dist", this_file), 'rb').read()
         response = requests.post(f'https://uploads.github.com/repos/LetMeFly666/BUCTOJ/releases/{release_id}/assets', headers=headers, params=params, data=data)
         print(response)
+        print(response.text)
 
 
 
