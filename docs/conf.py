@@ -2,8 +2,11 @@
 Author: LetMeFly
 Date: 2024-06-04 16:27:24
 LastEditors: LetMeFly
-LastEditTime: 2024-06-04 20:31:59
+LastEditTime: 2024-06-04 20:39:55
 '''
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import setup
 
 # Configuration file for the Sphinx documentation builder.
