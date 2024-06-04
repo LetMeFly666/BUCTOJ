@@ -1,3 +1,9 @@
+'''
+Author: LetMeFly
+Date: 2024-06-04 16:27:24
+LastEditors: LetMeFly
+LastEditTime: 2024-06-04 19:21:27
+'''
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
@@ -7,7 +13,7 @@ copyright = '2024, Tisfy'
 author = 'Tisfy'
 
 release = '0.3'
-version = '0.3.5'
+version = '0.3.6'
 
 # -- General configuration
 
